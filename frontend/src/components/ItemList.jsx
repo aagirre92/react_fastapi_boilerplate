@@ -1,5 +1,6 @@
 import "./ItemList.css";
 
+//The export default keywords specify the main component in the file//
 export default function ItemList({ items, onEdit, onDelete }) {
   if (items.length === 0) {
     return <p className="item-list-empty">No items yet. Create one above.</p>;

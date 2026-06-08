@@ -46,7 +46,7 @@ export default function App() {
 
   return (
     <div className="app-container">
-      <h1>Items CRUD</h1>
+      <h1>Items CRUD app. Nº items: {items.length}</h1>
 
       <ItemForm
         editingItem={editingItem}

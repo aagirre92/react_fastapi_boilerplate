@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./ItemForm.css";
 
 // Handles both create (editingItem=null) and edit (editingItem=object) modes
+// The export default keywords specify the main component in the file
 export default function ItemForm({ editingItem, onSave, onCancel }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
