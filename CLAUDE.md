@@ -203,4 +203,3 @@ npm run dev                      # http://localhost:5173
 - CORS: currently `allow_origins=["*"]` — tighten to `["http://localhost:5173"]` when ready
 
 - No auth, no database, no state manager yet
-
