@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./ItemForm.css";
 
 // Handles both create (editingItem=null) and edit (editingItem=object) modes
 export default function ItemForm({ editingItem, onSave, onCancel }) {
@@ -22,34 +23,32 @@ export default function ItemForm({ editingItem, onSave, onCancel }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} style={styles.form}>
+    <form onSubmit={handleSubmit} className="item-form">
       <h2>{editingItem ? "Edit Item" : "New Item"}</h2>
 
-      <label style={styles.label}>
+      <label>
         Name
         <input
           value={name}
           onChange={e => setName(e.target.value)}
           required
-          style={styles.input}
         />
       </label>
 
-      <label style={styles.label}>
+      <label>
         Description
         <input
           value={description}
           onChange={e => setDescription(e.target.value)}
-          style={styles.input}
         />
       </label>
 
-      <div style={styles.buttons}>
-        <button type="submit" style={styles.btnPrimary}>
+      <div className="form-buttons">
+        <button type="submit" className="btn-primary">
           {editingItem ? "Update" : "Create"}
         </button>
         {editingItem && (
-          <button type="button" onClick={onCancel} style={styles.btnSecondary}>
+          <button type="button" onClick={onCancel} className="btn-secondary">
             Cancel
           </button>
         )}
@@ -57,12 +56,3 @@ export default function ItemForm({ editingItem, onSave, onCancel }) {
     </form>
   );
 }
-
-const styles = {
-  form: { display: "flex", flexDirection: "column", gap: "12px", maxWidth: "400px", marginBottom: "32px" },
-  label: { display: "flex", flexDirection: "column", gap: "4px", fontWeight: "bold" },
-  input: { padding: "6px 8px", fontSize: "14px", border: "1px solid #ccc", borderRadius: "4px" },
-  buttons: { display: "flex", gap: "8px" },
-  btnPrimary: { padding: "6px 16px", background: "#4a90e2", color: "#fff", border: "none", borderRadius: "4px", cursor: "pointer" },
-  btnSecondary: { padding: "6px 16px", background: "#ccc", border: "none", borderRadius: "4px", cursor: "pointer" },
-};

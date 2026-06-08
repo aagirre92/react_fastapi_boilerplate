@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ItemForm from "./components/ItemForm";
 import ItemList from "./components/ItemList";
+import "./App.css";
 
 const API = "http://localhost:8080/api/items";
 
@@ -44,7 +45,7 @@ export default function App() {
   }
 
   return (
-    <div style={{ maxWidth: "700px", margin: "40px auto", fontFamily: "sans-serif", padding: "0 16px" }}>
+    <div className="app-container">
       <h1>Items CRUD</h1>
 
       <ItemForm
