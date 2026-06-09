@@ -3,7 +3,7 @@ import ItemForm from "./components/ItemForm";
 import ItemList from "./components/ItemList";
 import "./App.css";
 
-const API = "http://localhost:8080/api/items";
+const API = `/api/items`;
 
 export default function App() {
   const [items, setItems] = useState([]);
