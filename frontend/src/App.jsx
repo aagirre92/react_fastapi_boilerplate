@@ -47,7 +47,7 @@ export default function App() {
   return (
     <div className="app-container">
       <h1>⭐React CRUD app. Nº items: {items.length}</h1>
-      <h2>Hey there buddy</h2>
+      <h2>Hello there</h2>
 
       <ItemForm
         editingItem={editingItem}
