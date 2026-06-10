@@ -24,12 +24,20 @@ jobs:
         key: ${{ secrets.GCP_SSH_KEY }}
         port: 22
         script: |
-          # Navigate into your repository folder on the VM
-          cd ~/react_fastapi_boilerplate
-          
-          # Pull down the latest code changes from GitHub
-          git pull origin main
-          
-          # Rebuild and launch the updated Docker containers silently
-          sudo docker-compose down
-          sudo docker-compose up -d --build
+                  # Go to the home directory of the github-actions user
+                  cd ~
+                  
+                  # If the repo hasn't been cloned by this user yet, clone it
+                  if [ ! -d "react_fastapi_boilerplate" ]; then
+                    git clone https://github.com/aagirre92/react_fastapi_boilerplate.git
+                  fi
+                  
+                  # Navigate into the folder
+                  cd react_fastapi_boilerplate
+                  
+                  # Pull the latest code
+                  git pull origin main
+                  
+                  # Tear down existing containers and rebuild
+                  sudo docker-compose down
+                  sudo docker-compose up -d --build
