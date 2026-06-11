@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    # We do not expose 8080 to the host; Nginx will route to it internally via the Docker network
+    volumes:
+      - ./backend/app.db:/app/app.db # Persists the SQLite database
+    restart: always
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: always
